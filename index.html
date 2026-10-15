@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Custom 3D Portfolio of a BCS (Second Year) Computer Science Student & Developer">
+    <title>Aslam Shaikh | BCS (SY) Student</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@800;900&family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Custom CSS (Separate File) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <!-- 3D Canvas Background -->
+    <canvas id="three-bg-canvas"></canvas>
+    <div class="bg-glows">
+        <div class="glow-orb orb-cyan"></div>
+        <div class="glow-orb orb-purple"></div>
+        <div class="glow-orb orb-emerald"></div>
+    </div>
+    <div class="grid-overlay"></div>
+
+    <!-- Custom Glowing Mouse Pointer -->
+    <div class="mouse-dot" id="mouse-dot"></div>
+    <div class="mouse-ring" id="mouse-ring"></div>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-brand">
+                <span class="brand-bracket">&lt;</span>
+                <span class="brand-text">AS.shaikh</span>
+                <span class="brand-bracket">/&gt;</span>
+                <span class="brand-badge">SY_CS</span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#hero" class="nav-link active"><i data-lucide="home"></i> Home</a>
+                <a href="#about" class="nav-link"><i data-lucide="user"></i> About Me</a>
+                <a href="#academics" class="nav-link"><i data-lucide="graduation-cap"></i> BCS Roadmap</a>
+                <a href="#skills" class="nav-link"><i data-lucide="cpu"></i> Skills</a>
+                <a href="#projects" class="nav-link"><i data-lucide="folder-git-2"></i> Projects</a>
+                <a href="#certificates" class="nav-link"><i data-lucide="award"></i> Certificates</a>
+                <a href="#team" class="nav-link"><i data-lucide="users"></i> Team</a>
+                <a href="#contact" class="nav-link"><i data-lucide="send"></i> Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="icon-btn" id="audio-toggle-btn" title="Toggle Sound FX">
+                    <i data-lucide="volume-2" id="audio-icon"></i>
+                </button>
+                
+                </button>
+                <button class="mobile-toggle" id="mobile-menu-toggle">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Wrapper -->
+    <main class="main-wrapper">
+
+        <!-- ================= 1. HERO SECTION WITH BIG 3D PHOTO ================= -->
+        <section id="hero" class="hero-section">
+            <div class="hero-layout">
+                
+                <!-- Left: Headline & Bio -->
+                <div class="hero-text-col">
+                    <div class="status-tag glass-box">
+                        <span class="status-pulse"></span>
+                        <span>BCS 2nd Year Student &bull; Elite Software Internships 2026</span>
+                    </div>
+
+                    <h1 class="hero-main-title">
+                        CREATIVE <span class="gradient-cyan">COMPUTER SCIENCE</span> DEVELOPER &amp; 
+                        <span class="gradient-emerald">Web Design</span>
+                    </h1>
+
+                    <p class="hero-paragraph">
+                        Hi, I'm <strong class="name-highlight">Aslam Shaikh</strong>. 
+                        Second-Year BCS student at <strong>Tulsi College Beed</strong>. Passionate about 
+                        <strong>HTML, JS, PHP, C,C++</strong>, high-scale web systems.
+                    </p>
+
+                    <!-- Fast Stat Badges -->
+                    <div class="hero-metrics-grid">
+                        <div class="metric-card glass-box">
+                            <div class="metric-num gradient-cyan">8.67</div>
+                            <div class="metric-txt">BCS (FY) CGPA</div>
+                        </div>
+                        <div class="metric-card glass-box">
+                            <div class="metric-num gradient-emerald">50+</div>
+                            <div class="metric-txt">Code Solved</div>
+                        </div>
+                        <div class="metric-card glass-box">
+                            <div class="metric-num gradient-amber">0+</div>
+                            <div class="metric-txt">Projects </div>
+                        </div>
+                        <div class="metric-card glass-box">
+                            <div class="metric-num gradient-purple">2028</div>
+                            <div class="metric-txt">Passing Year</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta-btns">
+                        <a href="#projects" class="btn btn-glow">
+                            <i data-lucide="layers"></i> Explore Projects
+                        </a>
+                        
+                            <i data-lucide="file-text"></i> More
+                        </button>
+                        <a href="https://wa.me/917499664814?text=Hi%20Aslam,%20I%20saw%20your%20Portfolio" target="_blank" class="btn-brand-icon btn-brand-whatsapp" title="Chat on WhatsApp">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.53 1.83.81 2.802.81 3.18 0 5.766-2.587 5.767-5.766.001-3.182-2.585-5.767-5.773-5.767zm0-2.172c4.418 0 8 3.582 8 8 0 4.418-3.582 8-8 8-1.408 0-2.733-.365-3.882-1.006l-4.149 1.086 1.107-4.045c-.689-1.173-1.076-2.54-1.076-4.035 0-4.418 3.582-8 8-8z"/></svg>
+                        </a>
+                        <a href="https://instagram.com/aslam_shaikh__74/" target="_blank" class="btn-brand-icon btn-brand-instagram" title="Instagram Profile">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                                           </a>
+                        <a href="https://linkedin.com/in/shaikh-aslam-814292377/" target="_blank" class="btn-brand-icon btn-brand-linkedin" title="LinkedIn Profile">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                <!-- Right: BIG 3D HOLOGRAPHIC PHOTO CARD (Front Page Hero Image) -->
+                <div class="hero-photo-col">
+                    <div class="photo-3d-stage" id="hero-photo-stage">
+                        <div class="photo-3d-card" id="hero-photo-card">
+                            
+                            <div class="photo-neon-rim"></div>
+                            
+                            <!-- MAIN LARGE FRONT PHOTO -->
+                            <div class="photo-container">
+                                <img src="img\front page2.jpeg" 
+                                     
+                                     alt="My Hero Photo" 
+                                     id="hero-img-element" 
+                                     class="hero-large-img">
+                                <div class="photo-dark-gradient"></div>
+                                
+                                
+            
+                                
+                            </div>
+
+                            <!-- Bottom Glass Caption -->
+                            <div class="photo-bottom-caption glass-box">
+                                <div>
+                                    <div class="caption-name">Aslam Shaikh</div>
+                                    <div class="caption-role">BCS Second Year Student </div>
+                                </div>
+                                <div class="status-online">
+                                    <span class="dot-green"></span>
+                                    <span>Available</span>
+                                </div>
+                            </div>
+
+                            <!-- 3D Satellite Badges -->
+                            <div class="sat-badge sat-top-left glass-box">
+                                <div class="badge-icon-wrap bg-cyan-dim"><i data-lucide="terminal"></i></div>
+                                <div>
+                                    <div class="sat-title">C &amp; HTML</div>
+                                    <div class="sat-sub">SQL &amp; JS</div>
+                                </div>
+                            </div>
+
+                            <div class="sat-badge sat-top-right glass-box">
+                                <div class="badge-icon-wrap bg-emerald-dim"><i data-lucide="box"></i></div>
+                                <div>
+                                    <div class="sat-title">JS</div>
+                                    <div class="sat-sub">Java script</div>
+                                </div>
+                            </div>
+
+                            <div class="sat-badge sat-bottom-left glass-box">
+                                <div class="badge-icon-wrap bg-amber-dim"><i data-lucide="database"></i></div>
+                                <div>
+                                    <div class="sat-title">C++&amp; CSS</div>
+                                    <div class="sat-sub">Design</div>
+                                </div>
+                            </div>
+
+                            <div class="sat-badge sat-bottom-right glass-box">
+                                <div class="badge-icon-wrap bg-purple-dim"><i data-lucide="award"></i></div>
+                                <div>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= 2. EXPANDED ABOUT ME (FULL DETAILS & 3D PHOTO) ================= -->
+        <section id="about" class="section about-section">
+            <div class="section-heading-wrap">
+                <span class="section-pill"><i data-lucide="user-check"></i> COMPLETE BIOGRAPHY &amp; PROFILE</span>
+                <h2 class="section-title">About Me &amp; <span class="gradient-cyan">Detailed Credentials</span></h2>
+                <p class="section-sub">Comprehensive overview of my personal background, academic trajectory, core technical competencies.</p>
+            </div>
+
+            <!-- Top Grid: 3D Photo Profile + Career Objective + Quick Stats -->
+            <div class="about-top-grid">
+                
+                <!-- Left: Dedicated 3D About Me Photo Card -->
+                <div class="about-photo-wrap">
+                    <div class="about-3d-card glass-box" id="about-3d-card">
+                        <div class="about-img-box">
+                            <img src="img\FRONT PAGE.jpeg"
+                                 alt="About Me Photo" 
+                                 id="about-img-element" 
+                                 class="about-img">
+                            
+
+                            
+                            <input type="file" id="upload-about-input" accept="image/*" style="display:none;">
+
+                            <div class="about-img-tag">Computer Science Developer</div>
+                        </div>
+
+                        <!-- Personal Snapshot Summary -->
+                        <div class="about-snapshot-summary">
+                            <div class="snap-item">
+                                <span class="snap-lbl">Student Name:</span>
+                                <span class="snap-val">Shaikh Aslam</span>
+                            </div>
+                            <div class="snap-item">
+                                <span class="snap-lbl">College PRN / Roll:</span>
+                                <span class="snap-val">BCS-2024-17</span>
+                            </div>
+                            <div class="snap-item">
+                                <span class="snap-lbl">Current Standing:</span>
+                                <span class="snap-val text-cyan font-bold">SY BCS &bull; Sem III </span>
+                            </div>
+                            <div class="snap-item">
+                                <span class="snap-lbl">Current Cumulative CGPA:</span>
+                                <span class="snap-val text-emerald font-bold">8 / 10.0</span>
+                            </div>
+                            <div class="snap-item">
+                                <span class="snap-lbl">Location:</span>
+                                <span class="snap-val">Beed, Maharashtra, India</span>
+                            </div>
+                        </div>
+
+                        <div class="about-card-cta-row">
+                            
+                                
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Comprehensive Story, Career Goal & LeetCode Tracker -->
+                <div class="about-narrative-wrap">
+                    <div class="glass-box about-story-box">
+                        <div class="story-badge-row">
+                            <span class="story-pill bg-cyan-dim"><i data-lucide="sparkles"></i> CAREER OBJECTIVE</span>
+                            <span class="story-status-tag"><span class="dot-green"></span> Open for 2026 Elite Software Internships</span>
+                        </div>
+                        
+                        <h3 class="narrative-main-title">Creating Websites &amp; Web Design</h3>
+                        
+                        <p class="narrative-para">
+                            I am a passionate <strong>Second-Year Bachelor of Computer Science (BCS) </strong>student focused on building modern, responsive, and user-friendly web applications. My core technical skills include HTML, CSS, JavaScript, and PHP, with a strong interest in creating interactive and visually attractive websites.
+
+I enjoy transforming ideas into functional web experiences by designing clean layouts with HTML and CSS, adding dynamic features using JavaScript, and developing powerful server-side functionality with PHP. My goal is to continuously improve my web development skills and build real-world websites that are fast, responsive, secure, and easy to use.
+                        </p>
+                        <p class="narrative-para
+
+                        <!-- LeetCode & Problem Solving Tracker Component -->
+                        <div class="dsa-tracker glass-box">
+                            <div class="dsa-head">
+                                <div>
+                                    <div class="dsa-title"><i data-lucide="terminal"></i> LeetCode &amp; Problem Solving Tracker</div>
+                                    <div class="dsa-subtitle">Continuous Daily Algorithmic Practice (C++ &amp; Java)</div>
+                                </div>
+                                <div class="dsa-stats-badge">
+                                    <span class="dsa-pill">320+ Solved</span>
+                                    <span class="dsa-streak-pill"><i data-lucide="flame"></i> 180-Day Streak</span>
+                                </div>
+                            </div>
+
+                            <div class="dsa-bars-container">
+                                <div class="dsa-bar-item">
+                                    <div class="bar-labels">
+                                        <span class="text-emerald font-bold">HTML & CSS</span>
+                                        <span>140 / 150 (93%)</span>
+                                    </div>
+                                    <div class="bar-track"><div class="bar-fill bg-emerald" style="width: 93%;"></div></div>
+                                </div>
+
+                                <div class="dsa-bar-item">
+                                    <div class="bar-labels">
+                                        <span class="text-amber font-bold">Java Script</span>
+                                        <span>150 / 180 (83%)</span>
+                                    </div>
+                                    <div class="bar-track"><div class="bar-fill bg-amber" style="width: 83%;"></div></div>
+                                </div>
+
+                                <div class="dsa-bar-item">
+                                    <div class="bar-labels">
+                                        <span class="text-purple font-bold">PHP</span>
+                                        <span>30 / 50 (60%)</span>
+                                    </div>
+                                    <div class="bar-track"><div class="bar-fill bg-purple" style="width: 60%;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Bottom Detailed Cards Matrix: Personal Details, Academic History, Core Pillars, Leadership & Interests -->
+            <div class="about-details-matrix">
+                
+                <!-- 1. Full Personal Details Card -->
+                <div class="matrix-card glass-box">
+                    <div class="matrix-card-header">
+                        <div class="matrix-icon bg-cyan-dim"><i data-lucide="user"></i></div>
+                        <div>
+                            <h4 class="matrix-title">Personal Information</h4>
+                            <p class="matrix-sub">Key Identity &amp; Contact Details</p>
+                        </div>
+                    </div>
+                    <div class="matrix-table">
+                        <div class="m-row">
+                            <span class="m-key">Full Name:</span>
+                            <span class="m-val">Shaikh Aslam Aktar</span>
+                        </div>
+                        <div class="m-row">
+                            <span class="m-key">Age / DOB:</span>
+                            <span class="m-val">23 Years (05th May 2003)</span>
+                        </div>
+                        <div class="m-row">
+                            <span class="m-key">Nationality:</span>
+                            <span class="m-val">Indian 🇮🇳</span>
+                        </div>
+                        <div class="m-row">
+                            <span class="m-key">Languages:</span>
+                            <span class="m-val">English (Fluent), Hindi, Marathi</span>
+                        </div>
+                        <div class="m-row">
+                            <span class="m-key">Primary Email:</span>
+                            <span class="m-val">aslamshaikh22597@gmail.com</span>
+                        </div>
+                        <div class="m-row">
+                            <span class="m-key">Phone / WA:</span>
+                            <span class="m-val">+91 7499664814</span>
+                        </div>
+                        <div class="m-row">
+                            <span class="m-key">Current City:</span>
+                            <span class="m-val">Beed, Maharashtra</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Full Academic History Card -->
+                <div class="matrix-card glass-box">
+                    <div class="matrix-card-header">
+                        <div class="matrix-icon bg-emerald-dim"><i data-lucide="graduation-cap"></i></div>
+                        <div>
+                            <h4 class="matrix-title">Academic Qualifications</h4>
+                            <p class="matrix-sub">University &amp; Board Records</p>
+                        </div>
+                    </div>
+                    <div class="matrix-table">
+                        <div class="academic-block">
+                            <div class="ac-top">
+                                <span class="ac-degree">Bachelor of Computer Science (BCS)</span>
+                                <span class="ac-badge bg-emerald-dim">8.67 CGPA</span>
+                            </div>
+                            <div class="ac-inst">Tulsi c\College Of Computer Science & IT  &bull; 2025 – 2028</div>
+                            <div class="ac-desc">Major: Data Structures, Operating Systems, Computer Networks, Database Architecture, Discrete Mathematics.</div>
+                        </div>
+
+                        <div class="academic-block">
+                            <div class="ac-top">
+                                <span class="ac-degree">Higher Secondary Certificate (HSC 12th Science)</span>
+                                <span class="ac-badge bg-cyan-dim">85.00%</span>
+                            </div>
+                            <div class="ac-inst">Maharashtra State Board &bull; 2021 – 2022</div>
+                            
+                        </div>
+
+                        <div class="academic-block">
+                            <div class="ac-top">
+                                <span class="ac-degree">Secondary School Certificate (SSC 10th)</span>
+                                <span class="ac-badge bg-purple-dim">92.40%</span>
+                            </div>
+                            <div class="ac-inst">Maharashtra State Board &bull; 2019</div>
+                            <div class="ac-desc">School- Padali Highschool Padali</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Technical Core Pillars & Focus Card -->
+                <div class="matrix-card glass-box">
+                    <div class="matrix-card-header">
+                        <div class="matrix-icon bg-purple-dim"><i data-lucide="cpu"></i></div>
+                        <div>
+                            <h4 class="matrix-title">Core Technical Pillars</h4>
+                            <p class="matrix-sub">Primary Areas of Specialization</p>
+                        </div>
+                    </div>
+                    <div class="pillars-list">
+                        <div class="pillar-item">
+                            <div class="p-title"><i data-lucide="binary" class="text-cyan"></i> Fronted Development</div>
+                            <div class="p-desc">Building responsive and user-friendly websites using HTML, CSS, and JavaScript, with clean layouts, animations, navigation, and interactive features.</div>
+                        </div>
+                        <div class="pillar-item">
+                            <div class="p-title"><i data-lucide="server" class="text-emerald"></i> Backend Development</div>
+                            <div class="p-desc">Developing dynamic web applications using PHP, including server-side functionality, form handling, and database connectivity.</div>
+                        </div>
+                        <div class="pillar-item">
+                            <div class="p-title"><i data-lucide="box" class="text-purple"></i> Web Design & Responsive UI</div>
+                            <div class="p-desc">Creating modern and attractive interfaces that work smoothly across mobile, tablet, and desktop devices.</div>
+                        </div>
+                        <div class="pillar-item">
+                            <div class="p-title"><i data-lucide="terminal" class="text-amber"></i> Database & Web Integration</div>
+                            <div class="p-desc">Working with databases, PHP integration, form data, user information, and dynamic website functionality.</div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= 3. BCS ACADEMIC ROADMAP ================= -->
+        <section id="academics" class="section academics-section">
+            <div class="section-heading-wrap">
+                <span class="section-pill"><i data-lucide="graduation-cap"></i> SEMESTER-WISE ROADMAP</span>
+                <h2 class="section-title">BCS Academic <span class="gradient-emerald">Curriculum</span></h2>
+                <p class="section-sub">Detailed breakdown of theoretical subjects, practical programming labs, and university grades.</p>
+            </div>
+
+            <div class="semesters-grid">
+                
+                <!-- Sem 1 -->
+                <div class="sem-card glass-box">
+                    <div class="sem-num">SEMESTER I &bull; FY BCS</div>
+                    <h3 class="sem-title">C Programming &amp; Discrete Math</h3>
+                    <p class="sem-desc">Logic gates, pointers, dynamic memory allocation, proof techniques, truth tables, and Linux shell commands.</p>
+                    <ul class="sem-list">
+                        <li><i data-lucide="check"></i> Procedural Programming in C</li>
+                        <li><i data-lucide="check"></i> Discrete Mathematical Logic</li>
+                        <li><i data-lucide="check"></i> Computer Organization &amp; Hardware</li>
+                        <li><i data-lucide="check"></i> Linux Fundamentals &amp; Bash</li>
+                    </ul>
+                    <div class="sem-score text-emerald">SGPA: 8.18 / 10.0</div>
+                </div>
+
+                <!-- Sem 2 -->
+                <div class="sem-card glass-box">
+                    <div class="sem-num">SEMESTER II &bull; FY BCS</div>
+                    <h3 class="sem-title">C++ (OOP) &amp; Relational SQL</h3>
+                    <p class="sem-desc">Object-Oriented Design (Classes, Inheritance, Polymorphism, STL), Linear Algebra, and basic DBMS schemas.</p>
+                    <ul class="sem-list">
+                        <li><i data-lucide="check"></i> Advanced C++ Programming (STL)</li>
+                        <li><i data-lucide="check"></i> RDBMS Principles &amp; SQL Queries</li>
+                        <li><i data-lucide="check"></i> Linear Algebra &amp; Numerical Analysis</li>
+                        <li><i data-lucide="check"></i> HTML5, CSS3 &amp; DOM JavaScript</li>
+                    </ul>
+                    <div class="sem-score text-emerald">SGPA: 8.67 / 10.0</div>
+                </div>
+
+                <!-- Sem 3 (Current) -->
+                <div class="sem-card glass-box sem-current">
+                    <div class="sem-num text-cyan">SEMESTER III &bull; SY BCS (CURRENT)</div>
+                    <h3 class="sem-title">Data Structures &amp; Java Systems</h3>
+                    <p class="sem-desc">Analysis of Trees, Graphs, Sorting algorithms, Big-O complexities, Java multithreading, and Computer Networks.</p>
+                    <ul class="sem-list">
+                        <li><i data-lucide="check"></i> Data Structures &amp; Algorithms (C++/Java)</li>
+                        <li><i data-lucide="check"></i> Core Java &amp; GUI Applications</li>
+                        <li><i data-lucide="check"></i> Computer Networks &amp; OSI Layers</li>
+                        <li><i data-lucide="check"></i> PostgreSQL Database Systems</li>
+                    </ul>
+                    <div class="sem-score text-cyan">Upcoming</div>
+                </div>
+
+                <!-- Sem 4 -->
+                <div class="sem-card glass-box">
+                    <div class="sem-num">SEMESTER IV &bull; SY BCS</div>
+                    <h3 class="sem-title">Operating Systems &amp; Web Apps</h3>
+                    <p class="sem-desc">Process Scheduling, Virtual Memory, Concurrency models, React frontend engineering, and REST APIs.</p>
+                    <ul class="sem-list">
+                        <li><i data-lucide="arrow-right"></i> Operating Systems (Linux Kernel)</li>
+                        <li><i data-lucide="arrow-right"></i> Full-Stack Web Development (MERN)</li>
+                        <li><i data-lucide="arrow-right"></i> Software Engineering &amp; Testing</li>
+                        <li><i data-lucide="arrow-right"></i> Major Academic Capstone Lab</li>
+                    </ul>
+                    <div class="sem-score text-amber">Upcoming</div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= 4. SKILLS MATRIX ================= -->
+        <section id="skills" class="section skills-section">
+            <div class="section-heading-wrap">
+                <span class="section-pill"><i data-lucide="cpu"></i> TECHNICAL COMPETENCIES</span>
+                <h2 class="section-title">Languages &amp; <span class="gradient-cyan">Expertise</span></h2>
+                <p class="section-sub">Proficiency across fronted, backend, and web development.</p>
+            </div>
+
+            <div class="skills-grid">
+                
+                <div class="skill-category-box glass-box">
+                    <div class="cat-header">
+                        <div class="cat-icon bg-cyan-dim"><i data-lucide="binary"></i></div>
+                        <div>
+                            <h3 class="cat-title"> Fronted Development</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="skill-tags-list">
+                        <span class="skill-tag"><i data-lucide="code"></i> HTML &bull; 90%</span>
+                        <span class="skill-tag"><i data-lucide="coffee"></i> Java &bull; 85%</span>
+                        <span class="skill-tag"><i data-lucide="file-code"></i> CSS &bull; 80%</span>
+                        <span class="skill-tag"><i data-lucide="terminal"></i> C Language &bull; 88%</span>
+                        <span class="skill-tag"><i data-lucide="database"></i> SQL / PostgreSQL &bull; 85%</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-box glass-box">
+                    <div class="cat-header">
+                        <div class="cat-icon bg-emerald-dim"><i data-lucide="box"></i></div>
+                        <div>
+                            <h3 class="cat-title">Backend Development</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="skill-tags-list">
+                        <span class="skill-tag"><i data-lucide="rotate-3d"></i> PHP&bull; 85%</span>
+                        <span class="skill-tag"><i data-lucide="atom"></i> PHP Forms &bull; 85%</span>
+                        <span class="skill-tag"><i data-lucide="file-code-2"></i> JavaScript (ES6+) &bull; 90%</span>
+                        
+                    
+                    </div>
+                </div>
+
+                <div class="skill-category-box glass-box">
+                    <div class="cat-header">
+                        <div class="cat-icon bg-amber-dim"><i data-lucide="server"></i></div>
+                        <div>
+                            <h3 class="cat-title"> Databases</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="skill-tags-list">
+                        <span class="skill-tag"><i data-lucide="server"></i> My SQL &bull; 82%</span>
+                        <span class="skill-tag"><i data-lucide="database"></i> Database Management &bull; 85%</span>
+                        <span class="skill-tag"><i data-lucide="hard-drive"></i> SQL Queries &bull; 80%</span>
+                        
+                    </div>
+                </div>
+
+                <div class="skill-category-box glass-box">
+                    <div class="cat-header">
+                        <div class="cat-icon bg-purple-dim"><i data-lucide="git-branch"></i></div>
+                        <div>
+                            <h3 class="cat-title">Tools &amp; Web Technologies</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="skill-tags-list">
+                        <span class="skill-tag"><i data-lucide="git-merge"></i> VS Code &bull; 90%</span>
+                        <span class="skill-tag"><i data-lucide="cpu"></i> GitHub &bull; 85%</span>
+                        <span class="skill-tag"><i data-lucide="table"></i> Responsive Web Design &bull; 88%</span>
+                        <span class="skill-tag"><i data-lucide="wifi"></i> Live Server &bull; 80%</span>
+                                          </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= 5. FEATURED PROJECTS WITH IMAGE PREVIEWS ================= -->
+        <section id="projects" class="section projects-section">
+            <div class="section-heading-wrap">
+                <span class="section-pill"><i data-lucide="folder-git-2"></i> WORK SHOWCASE</span>
+                <h2 class="section-title"> <span class="gradient-cyan">Projects</span></h2>
+                
+            </div>
+
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card glass-box">
+                    <div class="project-img-holder">
+                        <img src="
+                             
+                        <div class="proj-badge-top">Websites  </div>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="proj-name">created Websites  &amp; Designs</h3>
+                        <p class="proj-text">
+                            
+                        </p>
+                        <div class="proj-tech-row">
+                            <span>HTML</span>
+                            <span>C++ Algorithms</span>
+                            <span>PHP</span>
+                        </div>
+                        <div class="proj-btn-row">
+                            <a href="https://github.com" target="_blank" class="btn btn-glass-sm"><i data-lucide="github"></i> GitHub</a>
+                            <a href="#" class="btn btn-primary-sm"><i data-lucide="external-link"></i> Coming soon</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-box">
+                    <div class="project-img-holder">
+                        <img src=
+                             
+                        <div class="proj-badge-top">Portfolio </div>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="proj-name">Created PORTFOLIO</h3>
+                        <p class="proj-text">
+                            
+                        </p>
+                        <div class="proj-tech-row">
+                            <span>PHP</span>
+                            <span>C++</span>
+                            <span>HTML</span>
+                        </div>
+                        <div class="proj-btn-row">
+                            <a href="https://github.com" target="_blank" class="btn btn-glass-sm"><i data-lucide="github"></i> GitHub</a>
+                            <a href="#" class="btn btn-primary-sm"><i data-lucide="external-link"></i> Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass-box">
+                    <div class="project-img-holder">
+                        <img src=
+                        <div class="proj-badge-top">Projects</div>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="proj-name">Developers &amp; Portfolio</h3>
+                        
+                        <div class="proj-tech-row">
+                            <span>Java </span>
+                            <span>Python</span>
+                            <span>C++</span>
+                        </div>
+                        <div class="proj-btn-row">
+                            <a href="https://github.com" target="_blank" class="btn btn-glass-sm"><i data-lucide="github"></i> GitHub</a>
+                            <a href="#" class="btn btn-primary-sm"><i data-lucide="external-link"></i> Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= 6. CERTIFICATES & HONORS (WITH IMAGE LIGHTBOX) ================= -->
+        <section id="certificates" class="section cert-section">
+            <div class="section-heading-wrap">
+                <span class="section-pill"><i data-lucide="award"></i> VERIFIED CREDENTIALS</span>
+                <h2 class="section-title">Certificates &amp; <span class="gradient-emerald">Achievements</span></h2>
+                <p class="section-sub">Click on any certificate to view.</p>
+            </div>
+
+            <div class="certificates-grid">
+                
+                <!-- Certificate 1 -->
+                <div 
+                     data-cert-img="images/cert-hackathon.jpg"
+                     data-cert-fallback="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?w=800&auto=format&fit=crop&q=80">
+                    
+                    <div class="cert-img-wrapper">
+                        <img src="images/cert-hackathon.jpg" 
+                             onerror="this.src='https://images.unsplash.com/photo-1579389083078-4e7018379f7e?w=600&auto=format&fit=crop&q=80'" 
+                             alt="Smart City Hackathon Certificate" class="cert-thumbnail">
+                        <div class="cert-hover-overlay">
+                            <i data-lucide="zoom-in"></i>
+                            <span>Inspect Certificate</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card-body">
+                        <div class="cert-type-pill text-amber"><i data-lucide="trophy">1st </i> </div>
+                        <h3 class="cert-name">Coding</h3>
+                        <p class="cert-provider">Beed &bull;  Competing Teams</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div 
+                     data-cert-fallback="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&auto=format&fit=crop&q=80">
+                    
+                    <div class="cert-img-wrapper">
+                        <img src="images/cert-dsa.jpg" 
+                             onerror="this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&auto=format&fit=crop&q=80'" 
+                             alt="DSA NPTEL Certificate" class="cert-thumbnail">
+                        <div class="cert-hover-overlay">
+                            <i data-lucide="zoom-in"></i>
+                            <span>Inspect Certificate</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card-body">
+                        <div class="cert-type-pill text-cyan"><i data-lucide="check-circle-2"></i> </div>
+                        <h3 class="cert-name">Data Structures in C</h3>
+                        <p class="cert-provider">Beed</p>
+                    </div>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div 
+                     data-cert-img="images/cert-web.jpg"
+                     data-cert-fallback="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&auto=format&fit=crop&q=80'" >
+                    
+                    <div class="cert-img-wrapper">
+                        <img src="images/cert-web.jpg" 
+                             onerror="this.src='https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80'" 
+                             alt="LeetCode Badge" class="cert-thumbnail">
+                        <div class="cert-hover-overlay">
+                            <i data-lucide="zoom-in"></i>
+                            <span>Inspect Certificate</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card-body">
+                        <div class="cert-type-pill text-emerald"><i data-lucide="code-2"></i> </div>
+                        <h3 class="cert-name">websites</h3>
+                        <p class="cert-provider">Beed</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= 7. TEAM MATES SLIDER CAROUSEL ================= -->
+        <section id="team" class="section team-section">
+            <div class="section-heading-wrap">
+                <span class="section-pill"><i data-lucide="users"></i> COLLABORATORS &amp; SQUAD</span>
+                <h2 class="section-title">My  <span class="gradient-cyan">Team Mates</span></h2>
+                <p class="section-sub">Project partners . Swipe or use arrows to view team profiles.</p>
+            </div>
+
+            <!-- Team Slider Carousel Container -->
+            <div class="team-slider-wrapper">
+                
+                <!-- Left / Right Nav Arrow Buttons -->
+                <button class="team-nav-arrow arrow-prev" id="team-prev-btn" aria-label="Previous Teammate">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <button class="team-nav-arrow arrow-next" id="team-next-btn" aria-label="Next Teammate">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+
+                <!-- Carousel Viewport & Track -->
+                <div class="team-carousel-viewport" id="team-carousel-viewport">
+                    <div class="team-carousel-track" id="team-carousel-track">
+                        
+                        <!-- Teammate 1 -->
+                        <div class="team-slide">
+                            <div class="compact-team-card glass-box">
+                                
+                                <!-- Circular Round Avatar with Glowing Ring -->
+                                <div class="team-round-avatar-wrap">
+                                    <div class="avatar-ring-glow glow-cyan">
+                                        <img src="img\vishal.jpeg" 
+                                             onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=400&auto=format&fit=crop&q=80'" 
+                                             alt="khetre vishal" id="team-img-1" class="round-avatar-img">
+                                    </div>
+                                    <label for="upload-team-1" class="avatar-upload-cam-btn" title="Change Photo">
+                                        <i data-lucide="camera"></i>
+                                    </label>
+                                    <input type="file" id="upload-team-1" accept="image/*" style="display:none;" data-target-img="team-img-1">
+                                </div>
+
+                                <div class="compact-card-body">
+                                    <h3 class="compact-name">Khetre Vishal</h3>
+                                    <div class="compact-role-pill bg-cyan-dim">Supporter </div>
+                                    
+                                    <p class="compact-bio">
+                                        Creates responsive and attractive website interfaces using HTML, CSS, and JavaScript.
+                                    </p>
+
+                                    <div class="compact-tags">
+                                        <span>Java</span>
+                                        <span>SQL</span>
+                                        <span>PHP</span>
+                                        <span>C</span>
+                                    </div>
+
+                                    <div class="compact-socials">
+                                        <a href="https://wa.me/919209353731" target="_blank" class="c-social-btn social-whatsapp" title="WhatsApp"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.53 1.83.81 2.802.81 3.18 0 5.766-2.587 5.767-5.766.001-3.182-2.585-5.767-5.773-5.767zm0-2.172c4.418 0 8 3.582 8 8 0 4.418-3.582 8-8 8-1.408 0-2.733-.365-3.882-1.006l-4.149 1.086 1.107-4.045c-.689-1.173-1.076-2.54-1.076-4.035 0-4.418 3.582-8 8-8z"/></svg></a>
+                                        <a href="https://instagram.com/vishal_0424" target="_blank" class="c-social-btn social-instagram" title="Instagram"><i data-lucide="instagram"></i></a>
+                                        <a href="https://linkedin.com/" target="_blank" class="c-social-btn social-linkedin" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Teammate 2 -->
+                        <div class="team-slide">
+                            <div class="compact-team-card glass-box">
+                                
+                                <div class="team-round-avatar-wrap">
+                                    <div class="avatar-ring-glow glow-emerald">
+                                        <img src="img\prasad.jpeg"
+                                             onerror="this.src='https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&auto=format&fit=crop&q=80'" 
+                                             alt="shahane prasad" id="team-img-2" class="round-avatar-img">
+                                    </div>
+                                    <label for="upload-team-2" class="avatar-upload-cam-btn" title="Change Photo">
+                                        <i data-lucide="camera"></i>
+                                    </label>
+                                    <input type="file" id="upload-team-2" accept="image/*" style="display:none;" data-target-img="team-img-2">
+                                </div>
+
+                                <div class="compact-card-body">
+                                    <h3 class="compact-name">Shahane Prasad</h3>
+                                    <div class="compact-role-pill bg-emerald-dim">Supporter</div>
+                                    
+                                    <p class="compact-bio">
+                                        Manages project planning, testing, documentation, and team coordination.
+                                    </p>
+
+                                    <div class="compact-tags">
+                                        <span>HTML</span>
+                                        <span>CSS</span>
+                                        <span>PHP</span>
+                                        <span>JS</span>
+                                    </div>
+
+                                    <div class="compact-socials">
+                                        <a href="https://wa.me/919876543210" target="_blank" class="c-social-btn social-whatsapp" title="WhatsApp"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.53 1.83.81 2.802.81 3.18 0 5.766-2.587 5.767-5.766.001-3.182-2.585-5.767-5.773-5.767zm0-2.172c4.418 0 8 3.582 8 8 0 4.418-3.582 8-8 8-1.408 0-2.733-.365-3.882-1.006l-4.149 1.086 1.107-4.045c-.689-1.173-1.076-2.54-1.076-4.035 0-4.418 3.582-8 8-8z"/></svg></a>
+                                        <a href="https://instagram.com" target="_blank" class="c-social-btn social-instagram" title="Instagram"><i data-lucide="instagram"></i></a>
+                                        <a href="https://linkedin.com" target="_blank" class="c-social-btn social-linkedin" title="LinkedIn"><i data-lucide="linkedin"></i></a>
+                                        <a href="https://github.com" target="_blank" class="c-social-btn social-github" title="GitHub"><i data-lucide="github"></i></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                       
+                       
+                <!-- Carousel Slide Indicator Dots -->
+                <div class="team-slider-dots" id="team-slider-dots">
+                    <span class="slider-dot active" data-slide="0"></span>
+                    <span class="slider-dot" data-slide="1"></span>
+                    <span class="slider-dot" data-slide="2"></span>
+                    <span class="slider-dot" data-slide="3"></span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================= 8. CONTACT SECTION ================= -->
+        <section id="contact" class="section contact-section">
+            <div class="section-heading-wrap">
+                <span class="section-pill"><i data-lucide="send"></i> GET IN TOUCH</span>
+                <h2 class="section-title">Let's Connect &amp; <span class="gradient-cyan">Collaborate</span></h2>
+                <p class="section-sub">Drop a message!</p>
+            </div>
+
+            <div class="contact-grid-wrap">
+                
+                <!-- Left Info Box -->
+                <div class="contact-info-panel glass-box">
+                    <h3 class="panel-heading">Direct Channels</h3>
+                    <p class="panel-sub">Available for Elite Software internships .</p>
+
+                    <div class="info-items-col">
+                        <div class="info-row">
+                            <div class="info-icon bg-cyan-dim"><i data-lucide="mail"></i></div>
+                            <div>
+                                <div class="info-lbl">Email Address</div>
+                                <div class="info-val copy-btn-trigger" id="copy-email-btn" title="Click to copy email">
+                                    aslamshaikh22597@gmail.com <i data-lucide="copy" class="copy-icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="info-icon bg-emerald-dim"><i data-lucide="map-pin"></i></div>
+                            <div>
+                                <div class="info-lbl">Location</div>
+                                <div class="info-val">Beed, Maharashtra, India</div>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="info-icon bg-amber-dim"><i data-lucide="clock"></i></div>
+                            <div>
+                                <div class="info-lbl">Academic Status</div>
+                                <div class="info-val">SY BCS (Graduating 2028)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links-row">
+                        <a href="https://wa.me/919876543210?text=Hi%20Rohit,%20I%20saw%20your%203D%20Portfolio" target="_blank" class="social-circle-btn brand-btn-whatsapp" title="Chat on WhatsApp">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.53 1.83.81 2.802.81 3.18 0 5.766-2.587 5.767-5.766.001-3.182-2.585-5.767-5.773-5.767zm0-2.172c4.418 0 8 3.582 8 8 0 4.418-3.582 8-8 8-1.408 0-2.733-.365-3.882-1.006l-4.149 1.086 1.107-4.045c-.689-1.173-1.076-2.54-1.076-4.035 0-4.418 3.582-8 8-8z"/></svg>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="social-circle-btn brand-btn-instagram" title="Instagram Profile">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-circle-btn brand-btn-linkedin" title="LinkedIn Profile">
+                            <i data-lucide="linkedin"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="social-circle-btn brand-btn-github" title="GitHub">
+                            <i data-lucide="github"></i>
+                        </a>
+                        <a href="https://leetcode.com" target="_blank" class="social-circle-btn brand-btn-leetcode" title="LeetCode">
+                            <i data-lucide="code-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Form Box -->
+                <div class="contact-form-panel glass-box">
+                    <form id="contact-form" class="styled-form"action="https://formspree.io/f/xwleqnvl"method="POST">
+                        <div class="form-row-2">
+                            <div class="form-control">
+                                <label for="form-name">Your Name</label>
+                                <input type="text" id="form-name" name="name"required placeholder="e.g. Aslam Shaikh">
+                            </div>
+                            <div class="form-control">
+                                <label for="form-email">Your Work Email</label>
+                                <input type="email" id="form-email" name="email"required placeholder="e.g.aslamshaikh22597@gmail.com">
+                            </div>
+                        </div>
+
+                        <div class="form-control">
+                            <label for="form-subject">Subject / Opportunity</label>
+                            <input type="text" id="form-subject" name="subject" required placeholder="e.g.Elite Software">
+                        </div>
+
+                        <div class="form-control">
+                            <label for="form-msg">Message</label>
+                            <textarea id="form-msg" name="message"rows="4" required placeholder="Hi Aslam, I checked your portfolio and would love to discuss..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-glow w-full" id="send-form-btn">
+                            <span>Send Message</span>
+                            <i data-lucide="send"></i>
+                        </button>
+                        <div id="form-status-alert" class="form-status-box"></div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="f-brand">
+                <span class="text-cyan"></span>Shaikh Aslam<span class="text-cyan"></span>
+                <p>Bachelor of Computer Science (SY) </p>
+            </div>
+            
+        </div>
+    </footer>
+
+    <!-- ================= MODAL 1: CERTIFICATE LIGHTBOX ================= -->
+    <div class="modal-backdrop" id="cert-lightbox-modal">
+        <div class="lightbox-card glass-box">
+            <button class="modal-close-icon" id="close-lightbox-btn"><i data-lucide="x"></i></button>
+            <div class="lightbox-top">
+                <span class="section-pill"><i data-lucide="award"></i> VERIFIED CERTIFICATE</span>
+                <h3 class="lightbox-title" id="lightbox-title">Certificate Title</h3>
+                <p class="lightbox-issuer" id="lightbox-issuer">Issuer Name</p>
+            </div>
+            <div class="lightbox-img-holder">
+                <img src="" alt="Certificate Large Preview" id="lightbox-img" class="lightbox-full-img">
+            </div>
+        </div>
+    <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+    <a href="https://wa.me/917499664814?text=Hi%20aslam%,%20I%20saw%20your%20Portfolio%20and%20want%20to%20connect!" 
+       target="_blank" 
+       class="floating-whatsapp-widget" 
+       title="Direct WhatsApp Chat">
+        <div class="whatsapp-pulse"></div>
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="#ffffff"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.97.53 1.83.81 2.802.81 3.18 0 5.766-2.587 5.767-5.766.001-3.182-2.585-5.767-5.773-5.767zm0-2.172c4.418 0 8 3.582 8 8 0 4.418-3.582 8-8 8-1.408 0-2.733-.365-3.882-1.006l-4.149 1.086 1.107-4.045c-.689-1.173-1.076-2.54-1.076-4.035 0-4.418 3.582-8 8-8z"/></svg>
+        <span class="whatsapp-tooltip">Chat with me!</span>
+    </a>
+
+    <!-- Custom Logic JavaScript (Separate File) -->
+    <script src="app.js"></script>
+</body>
+</html>
